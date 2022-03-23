@@ -1,0 +1,9 @@
+dist
+.vite-ssg-temp
+public_html
+public_html.zip
+src/types/components.d.ts
+node_modules
+.DS_Store
+pnpm-lock.yaml
+.env
