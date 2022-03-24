@@ -1,11 +1,6 @@
 <script setup lang="ts">
 import { gsap } from 'gsap';
 
-const [firstImg, secondImg] = [
-  'https://picsum.photos/id/1005/300/400',
-  'https://picsum.photos/id/1015/800/800',
-];
-
 const image1 = ref<HTMLImageElement>();
 const image2 = ref<HTMLImageElement>();
 
@@ -28,7 +23,11 @@ onMounted(() => {
   <section id="featured-section" class="grid grid-cols-[1fr,3fr] items-center px-[5vw] py-24">
     <div>
       <h6 class="font-work text-xl font-light uppercase">Decoración</h6>
-      <img ref="image1" :src="firstImg" class="w-full object-cover" />
+      <img
+        ref="image1"
+        class="w-full object-cover"
+        src="https://images.unsplash.com/photo-1496360650824-229a83e340db?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=30"
+      />
     </div>
 
     <div class="flex items-end justify-start">
@@ -37,7 +36,11 @@ onMounted(() => {
       >
         Presentación
       </h6>
-      <img ref="image2" :src="secondImg" class="h-[100vh] w-full object-cover" />
+      <img
+        ref="image2"
+        class="h-[100vh] w-full object-cover"
+        src="https://images.unsplash.com/photo-1539635278303-d4002c07eae3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=40"
+      />
     </div>
   </section>
 </template>

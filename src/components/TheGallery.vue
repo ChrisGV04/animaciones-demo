@@ -2,32 +2,32 @@
 import { gsap } from 'gsap';
 import { GalleryImageItem } from '~/types';
 
-const images = ref<GalleryImageItem[]>([
+const images: GalleryImageItem[] = [
   {
-    src: 'https://images.unsplash.com/photo-1566204773863-cf63e6d4ab88?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1345&q=100',
     title: 'Animaciones premium',
     subtitle: 'Diseño web',
     category: 'Sitio web / Tienda en línea',
+    src: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=40',
   },
   {
-    src: 'https://images.unsplash.com/photo-1558603668-6570496b66f8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1300&q=100',
     title: 'Diseño personalizado',
     subtitle: 'Resalta con clase',
     category: 'Sitio web / Tienda en línea',
+    src: 'https://images.unsplash.com/photo-1600585152915-d208bec867a1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=40',
   },
   {
-    src: 'https://images.unsplash.com/photo-1567225557594-88d73e55f2cb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=934&q=100',
     title: 'Elegancia',
     subtitle: 'Mejor presentación',
     category: 'Sitio web / Tienda en línea',
+    src: 'https://images.unsplash.com/photo-1600607688960-e095ff83135c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=20',
   },
   {
-    src: 'https://images.unsplash.com/photo-1611145367651-6303b46e4040?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2006&q=100',
     title: 'Moderno',
     subtitle: 'Llama la atención',
     category: 'Sitio web / Tienda en línea',
+    src: 'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=40',
   },
-]);
+];
 
 const galleryWrap = ref<HTMLElement>();
 const galleryItems = ref<any[]>([]);
