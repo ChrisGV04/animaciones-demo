@@ -20,7 +20,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <section id="about-section" class="overflow-hidden px-[5vw] py-24 lg:min-h-[90vh]">
+  <section id="about-section" class="h-[80vh] overflow-hidden px-[5vw] py-24 lg:min-h-[90vh]">
     <SectionHeader>Acerca de</SectionHeader>
 
     <p ref="headline" class="font-poppins text-[clamp(24px,4.17vw,60px)] leading-[1.12] opacity-0">

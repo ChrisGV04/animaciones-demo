@@ -28,7 +28,10 @@ onMounted(() => {
 </script>
 
 <template>
-  <section id="featured-section" class="flex flex-col items-center gap-4 px-[5vw] py-12 md:flex-row md:py-24">
+  <section
+    id="featured-section"
+    class="flex h-screen flex-col items-center gap-4 px-[5vw] py-12 md:flex-row md:py-24"
+  >
     <div class="md:w-2/5 lg:w-1/3">
       <h6 class="font-work text-xl font-light uppercase">Decoración</h6>
       <img

@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { gsap } from 'gsap';
 import { GalleryImageItem } from '~/types';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import imagesLoaded from 'imagesloaded';
 
 const images: GalleryImageItem[] = [
   {
@@ -33,24 +35,56 @@ const galleryWrap = ref<HTMLElement>();
 const galleryItems = ref<any[]>([]);
 
 onMounted(() => {
-  // const sections = gsap.utils.toArray('.gallery-item');
+  imagesLoaded(galleryWrap.value!).on('always', setAnimations);
+});
+
+const setAnimations = () => {
+  // Run different animations on mobile than on desktop
   const sections = galleryItems.value!.map((i) => i.itemWrapper);
 
-  gsap.to(sections, {
-    xPercent: -100 * (sections.length - 1),
-    ease: 'none',
-    scrollTrigger: {
-      scrub: 1,
-      pin: true,
-      trigger: galleryWrap.value,
-      end: `+=${galleryWrap.value!.offsetHeight * sections.length}`,
+  ScrollTrigger.matchMedia({
+    // Desktop animation
+    '(min-width: 768px)': () => {
+      gsap.to(sections, {
+        xPercent: -100 * (sections.length - 1),
+        ease: 'none',
+        scrollTrigger: {
+          scrub: 1,
+          pin: true,
+          trigger: galleryWrap.value,
+          end: `+=${galleryWrap.value!.offsetHeight * sections.length}`,
+        },
+      });
+    },
+
+    // Mobile animation
+    '(max-width: 767px)': () => {
+      for (let sIdx = 0; sIdx < sections.length; sIdx++) {
+        const section = sections[sIdx];
+        const [x, xEnd] = sIdx % 2 ? ['100%', 0] : [section!.scrollWidth * -1, 0];
+
+        gsap.fromTo(
+          section,
+          { x },
+          {
+            x: xEnd,
+            duration: 1,
+            scrollTrigger: {
+              trigger: section,
+              start: 'top 90%',
+              toggleActions: 'play none none reverse',
+            },
+          }
+        );
+      }
     },
   });
-});
+};
 </script>
 
 <template>
-  <section ref="galleryWrap" class="relative flex h-screen flex-nowrap bg-red-500">
+  <!-- relative flex h-screen flex-nowrap bg-red-500 -->
+  <section ref="galleryWrap" class="relative flex flex-col bg-red-500 md:h-screen md:flex-row md:flex-nowrap">
     <GalleryItem
       :key="imgIdx"
       :image="image"
@@ -58,33 +92,5 @@ onMounted(() => {
       v-for="(image, imgIdx) in images"
       :ref="(el:any) => galleryItems.push(el)"
     />
-    <!-- <section
-      :key="imgIdx"
-      ref="galleryItems"
-      v-for="(image, imgIdx) in images"
-      :style="{ backgroundImage: `url(${image.src})` }"
-      class="gallery-item flex h-screen w-screen shrink-0 items-center justify-center bg-sky-900/40 bg-cover bg-center bg-blend-darken"
-    >
-      <div class="font-bai text-7xl font-bold text-white drop-shadow-lg">{{ image.title }}</div>
-    </section> -->
-
-    <!-- <div
-      id="gallery-counter"
-      class="absolute top-[10%] left-[100px] z-[1] inline-block font-bai font-semibold leading-4 text-white mix-blend-difference"
-    >
-      <span>{{ activeImage }}</span>
-      <span id="divider" class="m-2 inline-block h-px w-[6.25vw] bg-white" />
-      <span>{{ images.length }}</span>
-    </div> -->
-
-    <!-- <div ref="gallery" class="relative flex h-screen flex-nowrap">
-      <GalleryItem
-        :key="imgIdx"
-        :image="image"
-        :image-idx="imgIdx"
-        v-for="(image, imgIdx) in images"
-        @updateActive="(newIdx) => (activeImage = activeImage + 1)"
-      />
-    </div> -->
   </section>
 </template>
