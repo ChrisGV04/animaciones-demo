@@ -9,7 +9,8 @@ onMounted(() => {
   gsap.to([line1.value, line2.value], {
     scrollTrigger: {
       trigger: locationHeadline.value,
-      start: 'top 80%',
+      start: 'top bottom',
+      toggleActions: 'play none none reverse',
     },
     duration: 1,
     y: 0,
