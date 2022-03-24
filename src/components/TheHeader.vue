@@ -64,6 +64,11 @@ onMounted(() => {
           <span ref="line2" class="animate-header-line block">Premium</span>
         </div>
       </h1>
+
+      <span
+        class="absolute left-1/2 bottom-8 w-4/5 -translate-x-1/2 text-center text-sm leading-tight text-amber-800 md:hidden"
+        >Para la mejor experiencia, visita esta página en una pantalla más grande</span
+      >
     </div>
   </section>
 </template>
