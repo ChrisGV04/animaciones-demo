@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { gsap } from 'gsap';
-import { GalleryImageItem } from '~/types';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import imagesLoaded from 'imagesloaded';
+import { GalleryImageItem } from '~/types';
 
 const images: GalleryImageItem[] = [
   {
@@ -35,10 +34,6 @@ const galleryWrap = ref<HTMLElement>();
 const galleryItems = ref<any[]>([]);
 
 onMounted(() => {
-  imagesLoaded(galleryWrap.value!).on('always', setAnimations);
-});
-
-const setAnimations = () => {
   // Run different animations on mobile than on desktop
   const sections = galleryItems.value!.map((i) => i.itemWrapper);
 
@@ -79,7 +74,7 @@ const setAnimations = () => {
       }
     },
   });
-};
+});
 </script>
 
 <template>
