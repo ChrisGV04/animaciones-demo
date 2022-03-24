@@ -20,6 +20,8 @@ const isMobile = breakpoints.smaller('lg');
 
       <TheGallery />
 
+      <TheZigZag />
+
       <TheFooter />
     </template>
 
