@@ -2,6 +2,18 @@
 import { gsap } from 'gsap';
 import imagesLoaded from 'imagesloaded';
 
+const sources = [
+  'https://images.unsplash.com/photo-1591035897819-f4bdf739f446?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=20',
+  'https://images.unsplash.com/photo-1534361960057-19889db9621e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=20',
+  'https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=20',
+  'https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=20',
+  'https://images.unsplash.com/photo-1527206363095-ca2f054128b0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=20',
+  'https://images.unsplash.com/photo-1501901609772-df0848060b33?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=20',
+  'https://images.unsplash.com/photo-1502945015378-0e284ca1a5be?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=20',
+  'https://images.unsplash.com/photo-1519052537078-e6302a4968d4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=20',
+  'https://images.unsplash.com/photo-1511551203524-9a24350a5771?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=20',
+];
+
 const images = ref<HTMLImageElement[]>([]);
 const galleries = ref<HTMLElement[]>([]);
 
@@ -31,9 +43,9 @@ const setAnimations = () => {
       <ul class="gallery-wrapper flex gap-4">
         <li v-for="imIdx in 3" :key="`g${gIdx}i${imIdx}`" class="w-[clamp(500px,60vw,800px)] shrink-0">
           <img
-            class="h-auto w-full"
             :ref="(el:any) => images.push(el)"
-            :src="`https://picsum.photos/400/200?random=${gIdx * imIdx + (Math.random() * (10 - 1) + 1)}`"
+            class="h-[40vh] w-full object-cover"
+            :src="sources[(gIdx - 1) * gIdx + imIdx - 1]"
           />
         </li>
       </ul>
