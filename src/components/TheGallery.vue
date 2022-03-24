@@ -79,7 +79,10 @@ onMounted(() => {
 
 <template>
   <!-- relative flex h-screen flex-nowrap bg-red-500 -->
-  <section ref="galleryWrap" class="relative flex flex-col bg-red-500 md:h-screen md:flex-row md:flex-nowrap">
+  <section
+    ref="galleryWrap"
+    class="relative flex flex-col overflow-x-hidden bg-red-500 md:h-screen md:flex-row md:flex-nowrap"
+  >
     <GalleryItem
       :key="imgIdx"
       :image="image"

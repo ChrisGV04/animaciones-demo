@@ -10,7 +10,6 @@ onMounted(() => {
     scrollTrigger: {
       trigger: locationHeadline.value,
       start: 'top 80%',
-      markers: true,
     },
     duration: 1,
     y: 0,
