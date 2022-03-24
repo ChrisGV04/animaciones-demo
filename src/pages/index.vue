@@ -11,7 +11,7 @@ const isMobile = breakpoints.smaller('lg');
 
 <template>
   <div id="main-container">
-    <template v-if="!isMobile">
+    <template v-if="true">
       <TheHeader />
 
       <TheFeatured />
