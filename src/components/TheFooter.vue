@@ -10,6 +10,7 @@ onMounted(() => {
     scrollTrigger: {
       trigger: locationHeadline.value,
       start: 'top 80%',
+      markers: true,
     },
     duration: 1,
     y: 0,
@@ -21,7 +22,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <section id="footer" class="min-h-screen px-[5vw] py-10 text-center">
+  <section id="footer" class="flex h-screen flex-col justify-center px-[5vw] py-10 text-center">
     <SectionHeader>Hecho en</SectionHeader>
     <h1 ref="locationHeadline" class="font-bodoni text-[16vw] uppercase leading-tight">
       <div class="overflow-hidden">
